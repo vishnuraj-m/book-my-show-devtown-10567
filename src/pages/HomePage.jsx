@@ -9,8 +9,8 @@ import DefaultLayoutHoc from '../layouts/DefaultLayout';
 
 
 const HomePage = () => {
-  const [recommendedMoves, setRecommendedMoves] = useState([]);
-  const [premierMoves, setPremierMoves] = useState([]);
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
+  const [premierMovies, setPremierMoves] = useState([]);
   const [onlineStreamEvents, setOnlineStreamEvents] = useState([]);
   return (
     <>
@@ -24,7 +24,7 @@ const HomePage = () => {
         <PosterSlider
           title='Recommended Movies'
           subject='List of Recommended Movies'
-          posters={recommendedMoves}
+          posters={recommendedMovies}
           isDark={false} />
       </div>
 
@@ -38,7 +38,7 @@ const HomePage = () => {
           <PosterSlider
             title='Premier Movies'
             subject='Brand new releases every Friday'
-            posters={premierMoves}
+            posters={premierMovies}
             isDark={true} />
         </div>
       </div>
