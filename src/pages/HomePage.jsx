@@ -6,12 +6,23 @@ import EntertainmentCard from '../components/entertainment/EntertainmentCard';
 import PosterSlider from '../components/poster_slider/PosterSlider';
 // layoutHoc
 import DefaultLayoutHoc from '../layouts/DefaultLayout';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 const HomePage = () => {
   const [recommendedMovies, setRecommendedMovies] = useState([]);
   const [premierMovies, setPremierMoves] = useState([]);
   const [onlineStreamEvents, setOnlineStreamEvents] = useState([]);
+
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      const getPopularMovies = await axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      setRecommendedMovies(getPopularMovies.data.results);
+    };
+
+    requestPopularMovies();
+  }, []);
   return (
     <>
       <HeroCarousel />
