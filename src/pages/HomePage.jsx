@@ -23,7 +23,7 @@ const HomePage = () => {
       <div className='container mx-auto px-4 md:px-12 my-8'>
         <PosterSlider
           title='Recommended Movies'
-          subject='List of Recommended Movies'
+          subtitle='List of Recommended Movies'
           posters={recommendedMovies}
           isDark={false} />
       </div>
@@ -37,7 +37,7 @@ const HomePage = () => {
           </div>
           <PosterSlider
             title='Premier Movies'
-            subject='Brand new releases every Friday'
+            subtitle='Brand new releases every Friday'
             posters={premierMovies}
             isDark={true} />
         </div>
@@ -45,7 +45,7 @@ const HomePage = () => {
       <div className='container mx-auto px-4 md:px-12 my-8'>
         <PosterSlider
           title='Online Streaming Events'
-          subject=''
+          subtitle=''
           posters={onlineStreamEvents}
           isDark={false} />
       </div>
