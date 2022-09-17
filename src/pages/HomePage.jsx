@@ -16,13 +16,41 @@ const HomePage = () => {
   const [onlineStreamEvents, setOnlineStreamEvents] = useState([]);
 
   useEffect(() => {
+    const requestTopRatedMovies = async () => {
+      const getTopRatedMovies = await axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      setRecommendedMovies(getTopRatedMovies.data.results);
+    };
+
+    requestTopRatedMovies();
+  }, []);
+
+  useEffect(() => {
     const requestPopularMovies = async () => {
-      const getPopularMovies = await axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=c92a81e06f586dc780a604f4f1185d1b");
-      setRecommendedMovies(getPopularMovies.data.results);
+      const getPopularMovies = await axios.get("https://api.themoviedb.org/3/tv/popular?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      setPremierMoves(getPopularMovies.data.results);
     };
 
     requestPopularMovies();
   }, []);
+
+  // useEffect(() => {
+  //   const requestUpComingMovies = async () => {
+  //     const getUpComingMovies = await axios.get("https://api.themoviedb.org/3/tv/upcoming?api_key=c92a81e06f586dc780a604f4f1185d1b");
+  //     setOnlineStreamEvents(getUpComingMovies.data.results);
+  //   };
+
+  //   requestUpComingMovies();
+  // }, []);
+
+  useEffect(() => {
+    const requestUpcomingMovies = async () => {
+      const getUpcomingMovies = await axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      setOnlineStreamEvents(getUpcomingMovies.data.results);
+    };
+
+    requestUpcomingMovies();
+  }, []);
+
   return (
     <>
       <HeroCarousel />
