@@ -8,6 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviePage';
 import PlayPage from './pages/PlayPage';
+import axios from 'axios';
+
+axios.defaults.baseURL="https://api.themoviedb.org/3"
+axios.defaults.params ={};
+axios.defaults.params["app_key"]= "c92a81e06f586dc780a604f4f1185d1b"
 
 
 function App() {

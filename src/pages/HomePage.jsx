@@ -17,7 +17,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const requestTopRatedMovies = async () => {
-      const getTopRatedMovies = await axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      const getTopRatedMovies = await axios.get("/tv/top_rated");
       setRecommendedMovies(getTopRatedMovies.data.results);
     };
 
@@ -26,25 +26,16 @@ const HomePage = () => {
 
   useEffect(() => {
     const requestPopularMovies = async () => {
-      const getPopularMovies = await axios.get("https://api.themoviedb.org/3/tv/popular?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      const getPopularMovies = await axios.get("/tv/popular");
       setPremierMoves(getPopularMovies.data.results);
     };
 
     requestPopularMovies();
   }, []);
 
-  // useEffect(() => {
-  //   const requestUpComingMovies = async () => {
-  //     const getUpComingMovies = await axios.get("https://api.themoviedb.org/3/tv/upcoming?api_key=c92a81e06f586dc780a604f4f1185d1b");
-  //     setOnlineStreamEvents(getUpComingMovies.data.results);
-  //   };
-
-  //   requestUpComingMovies();
-  // }, []);
-
   useEffect(() => {
     const requestUpcomingMovies = async () => {
-      const getUpcomingMovies = await axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=c92a81e06f586dc780a604f4f1185d1b");
+      const getUpcomingMovies = await axios.get("/movie/upcoming");
       setOnlineStreamEvents(getUpcomingMovies.data.results);
     };
 
