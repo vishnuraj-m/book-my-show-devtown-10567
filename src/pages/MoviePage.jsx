@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import { } from 'react-icons/fa';
 import { FaCcVisa, FaCcApplePay } from 'react-icons/fa';
 import PosterSlider from '../components/poster_slider/PosterSlider';
+import MovieHero from '../components/movie_hero/MovieHero';
 
 const MoviePage = () => {
 
@@ -60,6 +61,7 @@ const MoviePage = () => {
   return (
     <>
       {/* Movie Hero */}
+      <MovieHero />
       <div className='my-12 container px-4 lg-ml-20 lg:w-2/3'>
         <div className='flex flex-col items-start gap-3'>
           <h1 className='text-gray-800 font-bold text-2xl'>About the movie</h1>
@@ -130,7 +132,7 @@ const MoviePage = () => {
         {/* recommended movie slider */}
         <div className='my-8'>
           <PosterSlider
-            config={settings}
+            //config={settings}
             title='BMS EXCLUSIVE'
             posters={recommendedMovies}
             isDark={false} />
