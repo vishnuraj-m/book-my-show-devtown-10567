@@ -56,7 +56,38 @@ const MoviePage = () => {
   }, [id]);
 
   const settingCast = {};
-  const settings = {};
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 4,
+        },
+      },
+    ],
+  };
 
   return (
     <>
@@ -119,7 +150,7 @@ const MoviePage = () => {
         {/* recommended movie slider */}
         <div className='my-8'>
           <PosterSlider
-            //config={settings}
+            config={settings}
             title='Recommended Movies'
             posters={recommendedMovies}
             isDark={false} />
@@ -132,7 +163,7 @@ const MoviePage = () => {
         {/* recommended movie slider */}
         <div className='my-8'>
           <PosterSlider
-            //config={settings}
+            config={settings}
             title='BMS EXCLUSIVE'
             posters={recommendedMovies}
             isDark={false} />
