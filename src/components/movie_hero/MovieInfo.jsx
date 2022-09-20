@@ -1,33 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import PaymentModel from '../payment_model/PaymentModel';
+import { MovieContext } from '../../context/MovieContext';
 
 const MovieInfo = ({ movie }) => {
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [price, setPrice] = useState(0);
+  const {isOpen, setIsOpen, price, rentMovie,buyMovie}= useContext(MovieContext);
 
-    const genres = movie.genres?.map(({ name }) => name).join(', ');
+  const genres = movie.genres?.map(({ name }) => name).join(', ');
 
-    const rentMovie = () => {
-        setIsOpen(true);
-        setPrice(149);
-    };
-
-    const buyMovie = () => {
-        setIsOpen(true);
-        setPrice(599);
-    };
-
-    return (
-        <>
-        <PaymentModel setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
+  return (
+    <>
+      <PaymentModel setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
       <div className="flex flex-col gap-8">
         <h1 className="text-white text-5xl font-bold">
           {movie.original_title}
         </h1>
         <div className="flex  flex-col gap-2 text-white">
           <h4>4k rating</h4>
-          <h4>English, Hindi, Kannada, Tamil, Telgu</h4>
+          <h4>English, Hindi, Kannada, Tamil, Telugu</h4>
           <h4>
             {movie.runtime} min | {genres}
           </h4>
@@ -47,8 +37,8 @@ const MovieInfo = ({ movie }) => {
           </button>
         </div>
       </div>
-        </>
-    )
+    </>
+  )
 }
 
 export default MovieInfo
