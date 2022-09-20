@@ -7,6 +7,25 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
         setIsOpen(false);
     };
 
+    const launchRazorPay = () => {
+        let options = {
+            key: 'rzp_test_sFu4quN3ak6vxG',
+            amount: price * 100,
+            currency: "INR",
+            name: "Book My Show Clone",
+            description: "Movie Purchase or Rental",
+            image: "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+            handler:()=>{
+                setIsOpen(false);
+                alert("Payment Successful")
+            },
+            theme:{color:"#c4242d"}
+        };
+
+        let razorPay = window.Razorpay(options);
+        razorPay.open();
+    };
+
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -51,7 +70,7 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
                                         <button
                                             type='button'
                                             className='inline-flex justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
-                                            //onClick={launchRazorPay}
+                                        onClick={launchRazorPay}
                                         >
                                             Pay ₹{price}
                                         </button>
